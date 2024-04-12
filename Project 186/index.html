@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component/dist/aframe-layout-component.min.js"></script>
+    <!--script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script-->
+    <script src="dist/aframe-spe-particles-component.js"></script>
+  </head>
+    <body>
+        <a-scene background="color:black">
+            <a-assets>
+                <a-asset-item id="bg_scene" src="./assets/background/scene.gltf"></a-asset-item>
+            </a-assets>
+
+            <a-camera id="camera" position="0 0 0" wasd-controls="enabled : false" >
+                <a-entity
+                id = 'background'
+                gltf-model = '#bg_scene'
+                position="0 -10 -20"
+                scale="">
+                </a-entity>
+
+                <a-entity position="0 -7 -20">
+                    <a-entity
+                        spe-particles="
+                        texture : assets/blob.png;
+                        color : blue;
+                        velocity : 0 20 0;
+                        velocity-spread : 10, 8, 0;
+                        acceleration : 0 -10 0;
+                        size-spread: 0">
+                    </a-entity>
+                </a-entity>
+
+                <a-entity position="0 15 -25">
+                    <a-entity
+                        spe-particles="
+                        texture : assets/blob.png;
+                        color : white;
+                        position-spread : 60 50 30;
+                        radius : 10;
+                        randomize-position : true;
+                        particle-count : 300;
+                        velocity : 0 -20 0;
+                        max-age : 1;">
+                    </a-entity>
+                </a-entity>
+            </a-camera>
+        </a-scene>
+    </body>
+</html>
